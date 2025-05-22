@@ -24,16 +24,13 @@ jobs:
           tar -xzf vultr-cli_*_linux_amd64.tar.gz
           sudo mv vultr-cli /usr/local/bin/
           rm vultr-cli_*_linux_amd64.tar.gz
-      
-      - name: Set VULTR_API_KEY
+
+      - name: Set VULTR_API_KEY and run instance list
         env:
           VULTR_API_KEY: ${{ secrets.K8S_LABS_VULTR_API_KEY }}
         run: |
           echo "Configuring vultr-cli..."
           export VULTR_API_KEY=$VULTR_API_KEY
-          
-      - name: Run instance list
-        run: |
           echo "Listing Vultr server instances:"
           vultr-cli instance list
         
