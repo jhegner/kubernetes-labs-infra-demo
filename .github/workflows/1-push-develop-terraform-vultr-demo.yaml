@@ -3,7 +3,7 @@ name: Demo Terraform Vultr Connect
 on:
   push:
     branches:
-      - test/demo_vultr_terraform
+      - demo_vultr_terraform
 
 jobs:
   terraform:
@@ -30,6 +30,8 @@ jobs:
         run: terraform plan -out=tfplan
 
       - name: Terraform Apply
+        env:
+          VULTR_API_KEY: ${{ secrets.K8S_LABS_VULTR_API_KEY }}
         run: terraform apply -auto-approve tfplan
 
       - name: Run Ubuntu Runner Test
