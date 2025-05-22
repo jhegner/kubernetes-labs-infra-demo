@@ -22,7 +22,7 @@ jobs:
             | tr -d \" \
             | wget -qi -
           tar -xzf vultr-cli_*_linux_amd64.tar.gz
-          sudo mv vultr /usr/local/bin/
+          sudo mv vultr-cli /usr/local/bin/
           rm vultr-cli_*_linux_amd64.tar.gz
       
       - name: Set VULTR_API_KEY and run instance list
