@@ -7,6 +7,6 @@ on:
 
 jobs:
   call-reusable:
-    uses: ./.github/workflows/vultr-instance-list-reusable.yml@14c3dfd42270de94f2ec833c0853fa0d804c62fb
+    uses: jhegner/kubernetes-labs-infra-demo/.github/workflows/vultr-instance-list-reusable.yml@reusable_workflow_demo_vultr
     secrets:
       VULTR_API_KEY: ${{ secrets.K8S_LABS_VULTR_API_KEY }}
