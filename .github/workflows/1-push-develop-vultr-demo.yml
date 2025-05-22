@@ -16,12 +16,22 @@ jobs:
       - name: Install vultr-cli
         run: |
           echo "Installing vultr-cli..."
-          curl -s https://api.github.com/repos/vultr/vultr-cli/releases/latest | sudo bash
+          curl -s https://api.github.com/repos/vultr/vultr-cli/releases/latest \
+            | grep "browser_download_url.*linux_amd64.tar.gz" \
+            | cut -d : -f 2,3 \
+            | tr -d \" \
+            | wget -qi -
+          tar -xzf vultr-cli_*_linux_amd64.tar.gz
+          sudo mv vultr /usr/local/bin/
+          rm vultr-cli_*_linux_amd64.tar.gz
       
       - name: Set VULTR_API_KEY and run instance list
         env:
           VULTR_API_KEY: ${{ secrets.K8S_LABS_VULTR_API_KEY }}
         run: |
           export VULTR_API_KEY=$VULTR_API_KEY
+          echo "Configuring vultr-cli..."
+          vultr-cli config set --api-key "$VULTR_API_KEY"
+          echo "Listing Vultr server instances:"
           vultr-cli instance list
         
