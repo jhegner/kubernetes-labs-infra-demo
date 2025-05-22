@@ -6,27 +6,28 @@ on:
       - demo_vultr
 
 jobs:
-  runs-on: ubuntu-latest
+  demo-vultr:
+    runs-on: ubuntu-latest
 
-  steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    - name: Run Ubuntu Runner Test
-      run: |
-        echo "Installing vultr-cli..."
-        curl -s https://api.github.com/repos/vultr/vultr-cli/releases/latest \
-          | grep "browser_download_url.*linux_amd64.tar.gz" \
-          | cut -d : -f 2,3 \
-          | tr -d \" \
-          | wget -qi -
-        tar -xzf vultr-cli_*_linux_amd64.tar.gz
-        sudo mv vultr /usr/local/bin/
-        rm vultr-cli_*_linux_amd64.tar.gz
-        echo "Configuring vultr-cli..."
-        vultr-cli config set --api-key "$VULTR_API_KEY"
-        echo "Listing Vultr server instances:"
-        vultr-cli instance list
-      env:
-        VULTR_API_KEY: ${{ secrets.K8S_LABS_VULTR_API_KEY }}
+      - name: Run Ubuntu Runner Test
+        run: |
+          echo "Installing vultr-cli..."
+          curl -s https://api.github.com/repos/vultr/vultr-cli/releases/latest \
+            | grep "browser_download_url.*linux_amd64.tar.gz" \
+            | cut -d : -f 2,3 \
+            | tr -d \" \
+            | wget -qi -
+          tar -xzf vultr-cli_*_linux_amd64.tar.gz
+          sudo mv vultr /usr/local/bin/
+          rm vultr-cli_*_linux_amd64.tar.gz
+          echo "Configuring vultr-cli..."
+          vultr-cli config set --api-key "$VULTR_API_KEY"
+          echo "Listing Vultr server instances:"
+          vultr-cli instance list
+        env:
+          VULTR_API_KEY: ${{ secrets.K8S_LABS_VULTR_API_KEY }}
         
