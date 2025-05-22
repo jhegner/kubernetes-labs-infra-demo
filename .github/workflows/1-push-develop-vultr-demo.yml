@@ -29,9 +29,8 @@ jobs:
         env:
           VULTR_API_KEY: ${{ secrets.K8S_LABS_VULTR_API_KEY }}
         run: |
-          export VULTR_API_KEY=$VULTR_API_KEY
           echo "Configuring vultr-cli..."
-          vultr-cli config set --api-key "$VULTR_API_KEY"
+          export VULTR_API_KEY=$VULTR_API_KEY
           echo "Listing Vultr server instances:"
           vultr-cli instance list
         
