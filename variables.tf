@@ -1,7 +1,7 @@
 # This file contains the variables used in the Terraform configuration for creating a Kubernetes cluster on Vultr.
 
 # This variable is used to specify the Vultr API key, which is stored in GitHub Secrets.
-variable "vultr_api_key" {}
+# variable "vultr_api_key" {}
 
 # This variable is used to specify the name of the Vultr instance that will be created.
 variable "vultr_instance_name" {
