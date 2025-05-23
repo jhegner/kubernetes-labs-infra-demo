@@ -6,7 +6,7 @@ on:
       - demo_vultr_terraform
 
 jobs:
-  terraform:
+  terraform-execute:
     runs-on: ubuntu-latest
 
     env:
@@ -36,7 +36,7 @@ jobs:
 
   call-reusable:
         uses: jhegner/kubernetes-labs-infra-demo/.github/workflows/vultr-instance-list-reusable.yml@reusable_workflow_demo_vultr
-        needs: terraform
+        needs: terraform-execute
         secrets:
           VULTR_API_KEY: ${{ secrets.K8S_LABS_VULTR_API_KEY }}    
         
