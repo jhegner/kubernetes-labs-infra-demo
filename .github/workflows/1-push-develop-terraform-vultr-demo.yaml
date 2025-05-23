@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       TF_LOG: TRACE
-      VULTR_API_KEY: ${{ secrets.K8S_LABS_VULTR_API_KEY }}
+      VULTR_API_KEY: ${{secrets.K8S_LABS_VULTR_API_KEY}}
 
     steps:
       - name: Checkout repository
@@ -26,12 +26,8 @@ jobs:
       - name: Terraform Validate
         run: terraform validate
 
-      - name: Terraform Plan
-        env:
-          VULTR_API_KEY: ${{ secrets.K8S_LABS_VULTR_API_KEY }}      
+      - name: Terraform Plan  
         run: terraform plan -out=tfplan          
 
       - name: Terraform Apply
-        env:
-          VULTR_API_KEY: ${{ secrets.K8S_LABS_VULTR_API_KEY }}
         run: terraform apply -auto-approve tfplan        
