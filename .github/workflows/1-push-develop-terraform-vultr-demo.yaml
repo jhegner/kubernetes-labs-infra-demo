@@ -27,6 +27,8 @@ jobs:
         run: terraform validate
 
       - name: Terraform Plan
+        env:
+          VULTR_API_KEY: ${{ secrets.K8S_LABS_VULTR_API_KEY }}      
         run: terraform plan -out=tfplan          
 
       - name: Terraform Apply
