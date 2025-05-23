@@ -9,7 +9,7 @@ terraform {
 
 # Configure the Vultr Provider
 provider "vultr" {
-  api_key = "MPEH6VKINMAY3QZPASQXIOVE3G7Y5YXXH2OQ"
+  api_key = ""
 }
 
 # Create a Vultr instance
