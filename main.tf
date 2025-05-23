@@ -9,8 +9,7 @@ terraform {
 
 # Configure the Vultr Provider
 provider "vultr" {
-  rate_limit = 100
-  retry_limit = 3
+  api_key = var.vultr_api_key
 }
 
 # Create a Vultr instance
