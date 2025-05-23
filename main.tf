@@ -14,6 +14,7 @@ provider "vultr" {
   retry_limit = 3
 }
 
-module "vultr_resources" {
-  source = "./resources.tf"
+# Create a Vultr instance
+module "vultr_instance" {
+  source = "./modules/vultr_instance"
 }
