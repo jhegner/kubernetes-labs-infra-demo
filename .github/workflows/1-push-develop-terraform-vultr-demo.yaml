@@ -12,6 +12,7 @@ jobs:
       TF_LOG: TRACE
       VULTR_API_KEY: ${{ secrets.K8S_LABS_VULTR_API_KEY }}
       FAKE_SECRET: ${{ secrets.FAKE_SECRET }}
+      MYVAL: ${{ env.VARIABLE }}
 
     steps:
       # - name: Checkout repository
@@ -20,7 +21,17 @@ jobs:
       # - name: Set up Terraform
       #   uses: hashicorp/setup-terraform@v3
 
-      - run: echo "PRINT FAKE SECRET $FAKE_SECRET"
+      # - run: echo "PRINT FAKE SECRET $FAKE_SECRET"
+      - run: echo "PRINT FAKE ENV VAL $MYVAL"
+
+      - name: Test pass
+        run: |
+          # Test if the variable is set (DO NOT print its value)
+          if [ -z "$FAKE_SECRET" ]; then
+            echo "Error: FAKE_SECRET is not set!"
+            exit 1
+          fi  
+          curl -H "Authorization: Bearer $FAKE_SECRET" https://api.example.com/data    
 
       # - name: Terraform Init
       #   run: terraform init        
