@@ -19,4 +19,5 @@ resource "vultr_instance" "kubernetes-vultr-instance-demo" {
     os_id = var.vultr_instance_os_id
     count = var.vultr_instance_count
     label = var.vultr_instance_name
+    backups = var.vultr_instance_backups
 }

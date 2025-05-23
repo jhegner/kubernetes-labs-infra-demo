@@ -20,7 +20,7 @@ variable "vultr_instance_count" {
 # This variable is used to specify the plan, region, and OS ID for the Vultr instance.
 variable "vultr_instance_plan" {
   description = "Vultr instance plan"
-  default = "vc2-1c-0.5gb-free"
+  default = "vc2-1c-1gb"
   type    = string
 }
 
@@ -36,4 +36,10 @@ variable "vultr_instance_os_id" {
   description = "Vultr instance OS ID"
   default = 387
   type    = number
+}
+
+variable "vultr_instance_backups" {
+  description = "Vultr instance backups"
+  default = "disabled"
+  type    = string
 }
