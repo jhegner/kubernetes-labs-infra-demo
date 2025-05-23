@@ -10,28 +10,27 @@ jobs:
     runs-on: ubuntu-latest
     env:
       TF_LOG: TRACE
-      #VULTR_API_KEY: ${{ secrets.K8S_LABS_VULTR_API_KEY }}
+      VULTR_API_KEY: ${{ secrets.K8S_LABS_VULTR_API_KEY }}
+      FAKE_SECRET: ${{ secrets.FAKE_SECRET }}
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      # - name: Checkout repository
+      #   uses: actions/checkout@v4
 
-      - name: Set up Terraform
-        uses: hashicorp/setup-terraform@v3
+      # - name: Set up Terraform
+      #   uses: hashicorp/setup-terraform@v3
 
-      - name: Terraform Init
-        run: terraform init        
-      - run: echo "🎉 Terraform initialized"
+      - run: echo "PRINT FAKE SECRET $FAKE_SECRET"
 
-      - name: Terraform Validate
-        run: terraform validate
+      # - name: Terraform Init
+      #   run: terraform init        
+      # - run: echo "🎉 Terraform initialized"
 
-      - name: Terraform Plan        
-        env:
-          VULTR_API_KEY: ${{ secrets.K8S_LABS_VULTR_API_KEY }}
-        run: terraform plan -out=tfplan          
+      # - name: Terraform Validate
+      #   run: terraform validate
 
-      - name: Terraform Apply
-        env:
-          VULTR_API_KEY: ${{ secrets.K8S_LABS_VULTR_API_KEY }}
-        run: terraform apply -auto-approve tfplan        
+      # - name: Terraform Plan
+      #   run: terraform plan -out=tfplan          
+
+      # - name: Terraform Apply
+      #   run: terraform apply -auto-approve tfplan        
