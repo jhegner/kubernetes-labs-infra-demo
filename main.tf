@@ -15,5 +15,5 @@ provider "vultr" {
 }
 
 module "vultr_resources" {
-  source = "./resources"
+  source = "./resources.tf"
 }
