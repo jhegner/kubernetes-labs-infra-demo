@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       TF_LOG: TRACE
-      VULTR_API_KEY: ${{secrets.K8S_LABS_VULTR_API_KEY}}
+      #VULTR_API_KEY: ${{secrets.K8S_LABS_VULTR_API_KEY}}
 
     steps:
       - name: Checkout repository
