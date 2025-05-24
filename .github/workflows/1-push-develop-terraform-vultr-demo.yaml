@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       TF_LOG: TRACE
-      VULTR_API_KEY: MPEH6VKINMAY3QZPASQXIOVE3G7Y5YXXH2OQ
+      VULTR_API_KEY: ${{ secrets.VULTR_API_KEY }}
 
     steps:
       - name: Checkout repository
@@ -20,8 +20,7 @@ jobs:
         uses: hashicorp/setup-terraform@v3
 
       - name: Terraform Init
-        run: terraform init        
-      - run: echo "🎉 Terraform initialized"
+        run: terraform init
 
       - name: Terraform Validate
         run: terraform validate
