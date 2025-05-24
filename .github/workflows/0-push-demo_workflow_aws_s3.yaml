@@ -23,7 +23,7 @@ jobs:
       - name: Test AWS S3 LS
         run: |
           echo "Attempting to list S3 buckets..."
-          aws s3 ls # Execute the AWS CLI command to list S3 buckets
+          aws s3 s3://bucket-kubernetes-labs-terraform-state ls # Execute the AWS CLI command to list S3 buckets
           if [ $? -eq 0 ]; then
             echo "AWS S3 LS command executed successfully."
           else
