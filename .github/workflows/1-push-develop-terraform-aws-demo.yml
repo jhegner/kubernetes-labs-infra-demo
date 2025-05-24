@@ -1,16 +1,16 @@
-name: Demo Terraform Vultr Connect
+name: Demo Terraform save tfstate on AWS S3
 
 on:
   push:
     branches:
-      - demo_vultr_terraform
+      - demo_aws_terraform
 
 jobs:
   terraform-execute:
     runs-on: ubuntu-latest
     env:
-      TF_LOG: TRACE
-      TF_VAR_VULTR_API_KEY: ${{ secrets.VULTR_API_KEY }}
+      AWS_ACCESS_KEY_ID: {{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: {{  secrets.AWS_SECRET_ACCESS_KEY }}
 
     steps:
       - name: Checkout repository
@@ -20,13 +20,7 @@ jobs:
         uses: hashicorp/setup-terraform@v3
 
       - name: Terraform Init
-        run: terraform init
-
-      - name: Terraform Validate
-        run: terraform validate
-
-      - name: Terraform Plan  
-        run: terraform plan -out=tfplan          
+        run: terraform init     
 
       - name: Terraform Apply
         run: terraform apply -auto-approve tfplan        
