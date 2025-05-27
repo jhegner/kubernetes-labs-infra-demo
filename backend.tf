@@ -1,9 +1,10 @@
 terraform {
   backend "s3" {
-    bucket         = "bucket-kubernetes-labs-terraform-state"
-    key            = "infra/terraform.tfstate"
-    region         = "sa-east-1"
-    use_lockfile   = true
-    encrypt        = true
+    bucket         = var.bucket_name
+    key            = var.key
+    region         = var.region
+    dynamodb_table = var.dynamodb_table
+    use_lockfile   = var.use_lockfile
+    profile        = var.aws_profile
   }
 }

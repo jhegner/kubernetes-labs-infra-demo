@@ -2,14 +2,22 @@ variable "bucket_name" {
   default = "bucket-kubernetes-labs-terraform-state"
 }
 
-variable "bucket_prefix" {
-  default = "infra"
-}
-
-variable "iam_user_name" {
-  default = "kubernetes-labs-terraform-user"
-}
-
 variable "region" {
-  default = "sa-east-1"
+  default = "us-east-1"
+}
+
+variable "aws_profile" {
+  default = "kubernetes-labs"  
+}
+
+variable "key" {
+  default = "lab/state"   
+}
+
+variable "dynamodb_table" {
+  default = "table-kubernetes-labs-terraform-backend-state"
+}
+
+variable "use_lockfile" {
+  default = true  
 }
