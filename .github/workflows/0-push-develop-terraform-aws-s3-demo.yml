@@ -3,7 +3,7 @@ name: Demo Terraform save tfstate on AWS S3
 on:
   push:
     branches:
-      - demo_aws_terraform
+      - demo_aws_terraform_v2
 
 jobs:
   terraform-execute:
