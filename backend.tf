@@ -5,6 +5,5 @@ terraform {
     region         = "us-east-1"
     dynamodb_table = "table-kubernetes-labs-terraform-backend-state"
     use_lockfile   = true
-    profile        = "kubernetes-labs"
   }
 }
