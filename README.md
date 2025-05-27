@@ -1,4 +1,4 @@
-# Kubernetes Labs - Infra Demo
+# Kubernetes Labs - Infra Demo.
 
 ## Repositório para testes e demo, para:
 
