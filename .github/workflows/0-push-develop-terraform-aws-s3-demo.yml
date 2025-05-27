@@ -8,6 +8,8 @@ on:
 jobs:
   terraform-execute:
     runs-on: ubuntu-latest
+    env:
+      LOG_LEVEL: TRACE
 
     steps:
       - name: Checkout repository
