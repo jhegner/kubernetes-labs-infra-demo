@@ -9,7 +9,8 @@ jobs:
   terraform-execute:
     runs-on: ubuntu-latest
     env:
-      LOG_LEVEL: TRACE
+      TF_LOG: TRACE
+      TF_VAR_VULTR_API_KEY: ${{ secrets.VULTR_API_KEY }}
 
     steps:
       - name: Checkout repository
