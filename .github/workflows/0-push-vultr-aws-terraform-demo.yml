@@ -6,7 +6,7 @@ on:
       - demo_aws_vultr_terraform
 
 jobs:
-  terraform-execute:
+  terraform-execute-aws-vultr-demo:
     runs-on: ubuntu-latest
     env:
       TF_LOG: TRACE

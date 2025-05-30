@@ -11,7 +11,7 @@ on:
       - demo_aws_vultr_terraform # Or whatever your main branch is (e.g., master, develop)
 
 jobs:
-  destroy:
+  terraform-execute-aws-vultr-demo-destroy:
     # Only run this job if the "destroy-lab" label is present on the PR
     if: contains(github.event.pull_request.labels.*.name, 'destroy-lab')
     runs-on: ubuntu-latest
