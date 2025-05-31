@@ -20,57 +20,7 @@ jobs:
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
-        with:
-          terraform_version: 1.5.0 # Or your desired Terraform version
-          # Ensure you use a version compatible with your required_version in main.tf
-
-      - name: Terraform Init
-        id: init
-        run: terraform init
 
       - name: Terraform Destroy
         id: destroy
         run: terraform destroy -auto-approve
-        # For production environments, consider removing -auto-approve and
-        # adding manual approval steps or more robust checks.
-
-      - name: Add a comment to the PR (Optional)
-        if: success()
-        uses: actions/github-script@v6
-        with:
-          script: |
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: '✅ Terraform `destroy` completed successfully for resources associated with this PR and the "destroy-lab" label.'
-            })
-
-      - name: Add a comment on failure (Optional)
-        if: failure()
-        uses: actions/github-script@v6
-        with:
-          script: |
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: '❌ Terraform `destroy` failed for resources associated with this PR and the "destroy-lab" label. Please check the workflow logs for details.'
-            })
-
-    #   - name: Remove "destroy-lab" label (Optional - for cleanup)
-    #     if: always() # Run even if destroy fails, to attempt label removal
-    #     uses: actions/github-script@v6
-    #     with:
-    #       script: |
-    #         const labels = context.payload.pull_request.labels;
-    #         const destroyLabel = labels.find(label => label.name === 'destroy-lab');
-    #         if (destroyLabel) {
-    #           github.rest.issues.removeLabel({
-    #             issue_number: context.issue.number,
-    #             owner: context.repo.owner,
-    #             repo: context.repo.repo,
-    #             name: 'destroy-lab'
-    #           });
-    #           console.log('Removed "destroy-lab" label.');
-    #         }
