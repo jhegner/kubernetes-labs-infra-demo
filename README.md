@@ -1,2 +1,1 @@
-# kubernetes-labs-infra-demo
-Kubernetes Labs - Infra Demo
+💣 abrir PR para tf destroy, adicione o lab `destroy-lab`
