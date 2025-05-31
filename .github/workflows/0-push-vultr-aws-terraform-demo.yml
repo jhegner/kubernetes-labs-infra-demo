@@ -33,7 +33,7 @@ jobs:
         run: terraform validate        
 
       - name: Terraform Plan
-        run: terraform plan -out-approve
+        run: terraform plan -auto-approve
           
       - name: Terraform Apply
-        run: terraform apply -out-approve
+        run: terraform apply -auto-approve
