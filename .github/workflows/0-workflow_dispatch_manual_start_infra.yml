@@ -1,9 +1,7 @@
-name: Demo Terraform save tfstate on AWS S3
+name: Demo Manual - Start Infrastructure (AWS, Vultr, Terraform)
 
 on:
-  push:
-    branches:
-      - demo_aws_vultr_terraform
+  workflow_dispatch:
 
 jobs:
   terraform-execute-aws-vultr-demo:
