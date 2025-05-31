@@ -1,4 +1,4 @@
-> O demo do lab permite validarmos algumas hipoteses principalmente em relação ao terraform, vultr, aws e outros componentes da arquitetura do lab antes de implementar no repo principal.
+> O demo do lab permite validarmos algumas hipoteses principalmente em relação ao terraform, vultr, aws e outros componentes da arquitetura do lab antes de implementar no repo principal. Veja as branch do repo.
 
 # Informações:
 * AWS -> para armazenar as informações de estado da infra provisionada ([S3 Backend](https://developer.hashicorp.com/terraform/language/backend/s3)). Região: `us-east-1`
