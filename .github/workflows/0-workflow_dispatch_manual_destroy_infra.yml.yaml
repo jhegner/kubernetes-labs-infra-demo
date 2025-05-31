@@ -1,9 +1,7 @@
-name: Terraform Destroy on push
+name: Demo Manual - Destroy Infrastructure (AWS, Vultr, Terraform)
 
 on:
-  push:
-    branches:
-      - demo_aws_vultr_terraform_destroy
+  workflow_dispatch:
 
 jobs:
   terraform-execute-aws-vultr-demo-destroy:
