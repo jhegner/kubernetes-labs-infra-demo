@@ -29,3 +29,29 @@
 
 > [!IMPORTANT]  
 > Os recursos AWS: `kubernetes-labs-aws-user`, `kubernetes-labs-aws-group`, `kubernetes-labs-aws-s3bucket-policy` e `kubernetes-labs-tf-backend-aws-s3bucket` não serão removidos, podendo ser utilizado durante os labs
+
+*kubernetes-labs-aws-s3bucket-policy*
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "s3:ListBucket",
+            "Resource": "arn:aws:s3:::kubernetes-labs-tf-backend-aws-s3bucket"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject",
+                "s3:PutObject",
+                "s3:DeleteObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::kubernetes-labs-tf-backend-aws-s3bucket/lab/state/*"
+            ]
+        }
+    ]
+}
+
+```
