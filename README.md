@@ -20,11 +20,17 @@
         * `s3:PutObject`
         * `s3:DeleteObject`
     5. Vinculamos a `policy` ao grupo do lab da conta
-2. No Github action criamos 2 workflows:
-    1. 0-push-vultr-aws-terraform-demo:
-        * Com base no push da branch provisiona no vultr a infra e armazena o estado no bucket s3
-    2. 1-pull_request-labeled-destroy-lab-demo:
-        * Ao ser adicionado o label `destroy-lab` em `PR` aberta da branch executa o `terraform destroy` utilizando o estado armazenado no bucket s3 na branch
+2. No Github action criamos 2 workflows (manuais):
+    1. 0-workflow_dispatch_manual_start_infra.yaml:
+        * _Demo Manual - Start Infrastructure (AWS, Vultr, Terraform)_
+        * Com a branch `main` selecionada, é possível iniciar o provisionamento da infra, utilizando o fluxo manual do Github Actions, veja a [doc](https://docs.github.com/en/actions/managing-workflow-runs-and-deployments/managing-workflow-runs/manually-running-a-workflow)
+        * Para executar: Página inicial do Repo > Actions > All workflows > (Escolha o Workflow Start Infra) > Run workflow (lado direito) > (Escolha a branch ou utilize a `main`) > Run
+
+    2. 0-workflow_dispatch_manual_destroy_infra.yaml:
+        * _Demo Manual - Destroy Infrastructure (AWS, Vultr, Terraform)_
+        * Com a branch `main` selecionada, é possível iniciar o provisionamento da infra, utilizando o fluxo manual do Github Actions, veja a [doc](https://docs.github.com/en/actions/managing-workflow-runs-and-deployments/managing-workflow-runs/manually-running-a-workflow)
+        * Para executar: Página inicial do Repo > Actions > All workflows > (Escolha o Workflow Destroy Infra) > Run workflow (lado direito) > (Escolha a branch ou utilize a `main`) > Run
+
 
 
 > [!IMPORTANT]  
