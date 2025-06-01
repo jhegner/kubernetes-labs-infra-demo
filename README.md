@@ -24,12 +24,12 @@
     1. 0-workflow_dispatch_manual_start_infra.yaml:
         * _Demo Manual - Start Infrastructure (AWS, Vultr, Terraform)_
         * Com a branch `main` selecionada, é possível iniciar o provisionamento da infra, utilizando o fluxo manual do Github Actions, veja a [doc](https://docs.github.com/en/actions/managing-workflow-runs-and-deployments/managing-workflow-runs/manually-running-a-workflow)
-        * Para executar: Página inicial do Repo > Actions > All workflows > (Escolha o Workflow Start Infra) > Run workflow (lado direito) > (Escolha a branch ou utilize a `main`) > Run
+        * Para executar: Página inicial do Repo > Actions > All workflows > (Escolha o Workflow Start Infra) > Run workflow (lado direito) > (Escolha a branch `demo_start_manually`) > Run
 
     2. 0-workflow_dispatch_manual_destroy_infra.yaml:
         * _Demo Manual - Destroy Infrastructure (AWS, Vultr, Terraform)_
         * Com a branch `main` selecionada, é possível iniciar o provisionamento da infra, utilizando o fluxo manual do Github Actions, veja a [doc](https://docs.github.com/en/actions/managing-workflow-runs-and-deployments/managing-workflow-runs/manually-running-a-workflow)
-        * Para executar: Página inicial do Repo > Actions > All workflows > (Escolha o Workflow Destroy Infra) > Run workflow (lado direito) > (Escolha a branch ou utilize a `main`) > Run
+        * Para executar: Página inicial do Repo > Actions > All workflows > (Escolha o Workflow Destroy Infra) > Run workflow (lado direito) > (Escolha a branch `demo_destroy_manually`) > Run
 
 
 
