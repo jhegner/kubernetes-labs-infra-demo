@@ -1,5 +1,5 @@
-name: Bug Report
-description: File a bug report.
+name: Bug Report Destroy
+description: File a bug report Destroy.
 title: "[Bug]: "
 labels: ["bug", "triage"]
 projects: ["octo-org/1", "octo-org/44"]
