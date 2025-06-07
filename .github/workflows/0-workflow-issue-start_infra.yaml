@@ -1,4 +1,4 @@
-name: Demo Manual - Start Infrastructure (AWS, Vultr, Terraform)
+name: Demo Manual - Start Infra (AWS, Vultr, Terraform)
 
 on:
   workflow_dispatch:
