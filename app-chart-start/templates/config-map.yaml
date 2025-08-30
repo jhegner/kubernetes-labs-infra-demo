@@ -5,3 +5,5 @@ metadata:
   namespace: labs
 data:
   greating-message: "hello-world"
+  drink: {{ .Values.favorite.drink | default (printf "%s-tea" (include "fullname" .)) }}
+  food: {{ .Values.favorite.food | upper | quote }}
