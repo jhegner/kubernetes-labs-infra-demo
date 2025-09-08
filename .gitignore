@@ -4,3 +4,4 @@
 .terraform.lock.hcl
 tfplan
 terraform.tfvars
+aws-credentials.yaml
