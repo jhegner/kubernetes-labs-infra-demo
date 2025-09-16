@@ -69,6 +69,68 @@
       "responseMode": null,
       "streamingMode": null,
       "streamingInterval": 0
+    },
+    {
+      "uuid": "ffa45a95-98d6-4e41-9fd7-40265711f2a6",
+      "type": "http",
+      "documentation": "Mock - instances",
+      "method": "get",
+      "endpoint": "mock/vultr/v2/instances",
+      "responses": [
+        {
+          "uuid": "d0e69975-815a-4213-ad5e-d9b2912cd0e6",
+          "body": "{\r\n\t\"instances\": [\r\n\t\t{\r\n\t\t\t\"id\": \"2c21bef6-c902-41bb-8588-d538a49d32e3\",\r\n\t\t\t\"os\": \"Alpine Linux x64\",\r\n\t\t\t\"ram\": 2048,\r\n\t\t\t\"disk\": 55,\r\n\t\t\t\"main_ip\": \"155.138.238.170\",\r\n\t\t\t\"vcpu_count\": 1,\r\n\t\t\t\"region\": \"atl\",\r\n\t\t\t\"plan\": \"vc2-1c-2gb\",\r\n\t\t\t\"date_created\": \"2025-09-16T04:27:21+00:00\",\r\n\t\t\t\"status\": \"active\",\r\n\t\t\t\"allowed_bandwidth\": 3,\r\n\t\t\t\"netmask_v4\": \"255.255.254.0\",\r\n\t\t\t\"gateway_v4\": \"155.138.238.1\",\r\n\t\t\t\"power_status\": \"running\",\r\n\t\t\t\"server_status\": \"ok\",\r\n\t\t\t\"v6_network\": \"\",\r\n\t\t\t\"v6_main_ip\": \"\",\r\n\t\t\t\"v6_network_size\": 0,\r\n\t\t\t\"label\": \"\",\r\n\t\t\t\"internal_ip\": \"\",\r\n\t\t\t\"vpcs\": [],\r\n\t\t\t\"kvm\": \"https:\\/\\/my.vultr.com\\/subs\\/vps\\/novnc\\/api.php?data=djJ8WjRkdm5lckxpZFZVMFFabVZtU2dXRV9uZWplOEYwZnR8ZBMVJ6d6JzrpGVjeJva7hoI1eiMgE0tBzVHptqv_-1OI4m5bYrt__Zt6evqaXjHbb3SiMbnqeaZMf8KMhFaGB52pkOxH5QomQwyU0w8WHGcyxeI2-rKs4wojuUSo-bgHsP1f5RQ0vbTHhZ_IZA1TO7meWAGyy3wjNcWAwGrbhxpCruKuAFvuzxRodIxJo8U\",\r\n\t\t\t\"hostname\": \"vultr.guest\",\r\n\t\t\t\"tag\": \"\",\r\n\t\t\t\"tags\": [],\r\n\t\t\t\"os_id\": 2076,\r\n\t\t\t\"app_id\": 0,\r\n\t\t\t\"image_id\": \"\",\r\n\t\t\t\"snapshot_id\": \"\",\r\n\t\t\t\"firewall_group_id\": \"\",\r\n\t\t\t\"features\": [],\r\n\t\t\t\"user_scheme\": \"root\"\r\n\t\t}\r\n\t],\r\n\t\"meta\": {\r\n\t\t\"total\": 1,\r\n\t\t\"links\": {\r\n\t\t\t\"next\": \"\",\r\n\t\t\t\"prev\": \"\"\r\n\t\t}\r\n\t}\r\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "7ed77ff4-ea69-403f-a5a4-be197c1213ca",
+      "type": "http",
+      "documentation": "Mock - instance-resource",
+      "method": "delete",
+      "endpoint": "mock/vultr/v2/instances/:id",
+      "responses": [
+        {
+          "uuid": "c5b6da75-886a-4ad6-8c45-f906a566dcca",
+          "body": "",
+          "latency": 0,
+          "statusCode": 204,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
     }
   ],
   "rootChildren": [
@@ -79,6 +141,14 @@
     {
       "type": "route",
       "uuid": "c9a66d69-1e99-4a80-acd3-60fb4835099d"
+    },
+    {
+      "type": "route",
+      "uuid": "ffa45a95-98d6-4e41-9fd7-40265711f2a6"
+    },
+    {
+      "type": "route",
+      "uuid": "7ed77ff4-ea69-403f-a5a4-be197c1213ca"
     }
   ],
   "proxyMode": false,
