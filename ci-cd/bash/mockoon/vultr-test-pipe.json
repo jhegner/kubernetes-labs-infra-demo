@@ -1,0 +1,129 @@
+{
+  "uuid": "b9905eca-7675-448d-b23d-95dd6a4f785e",
+  "lastMigration": 33,
+  "name": "Vultr test pipe",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 3003,
+  "hostname": "",
+  "folders": [],
+  "routes": [
+    {
+      "uuid": "e16b08cf-56da-4e00-b10e-f1baf0abc0f1",
+      "type": "http",
+      "documentation": "Mock - load-balancers",
+      "method": "get",
+      "endpoint": "mock/vultr/v2/load-balancers",
+      "responses": [
+        {
+          "uuid": "690fa252-4a4d-4109-a873-bff48370fd00",
+          "body": "{\n\t\"load_balancers\": [\n\t\t{\n\t\t\t\"id\": \"ed99c2e4-a588-40b8-8232-cf61113165c4\",\n\t\t\t\"date_created\": \"2025-09-13T19:27:38+00:00\",\n\t\t\t\"region\": \"atl\",\n\t\t\t\"label\": \"aaa7c9d9b15fe408c8dcef6677e8c625\",\n\t\t\t\"status\": \"active\",\n\t\t\t\"ipv4\": \"45.76.253.63\",\n\t\t\t\"ipv6\": \"2001:19f0:5401:10cd:ffff:ffff:ffff:ffff\",\n\t\t\t\"generic_info\": {\n\t\t\t\t\"balancing_algorithm\": \"roundrobin\",\n\t\t\t\t\"ssl_redirect\": false,\n\t\t\t\t\"sticky_sessions\": {\n\t\t\t\t\t\"cookie_name\": \"\"\n\t\t\t\t},\n\t\t\t\t\"proxy_protocol\": false,\n\t\t\t\t\"private_network\": \"da80bd61-8ef3-484d-a47d-c0354d18eea1\",\n\t\t\t\t\"vpc\": \"da80bd61-8ef3-484d-a47d-c0354d18eea1\",\n\t\t\t\t\"timeout\": 600\n\t\t\t},\n\t\t\t\"health_check\": {\n\t\t\t\t\"protocol\": \"tcp\",\n\t\t\t\t\"port\": 31922,\n\t\t\t\t\"path\": \"\",\n\t\t\t\t\"check_interval\": 15,\n\t\t\t\t\"response_timeout\": 5,\n\t\t\t\t\"unhealthy_threshold\": 5,\n\t\t\t\t\"healthy_threshold\": 5\n\t\t\t},\n\t\t\t\"has_ssl\": false,\n\t\t\t\"http2\": false,\n\t\t\t\"http3\": false,\n\t\t\t\"forwarding_rules\": [\n\t\t\t\t{\n\t\t\t\t\t\"id\": \"2433d9f6c598ecbd\",\n\t\t\t\t\t\"frontend_protocol\": \"tcp\",\n\t\t\t\t\t\"frontend_port\": 80,\n\t\t\t\t\t\"backend_protocol\": \"tcp\",\n\t\t\t\t\t\"backend_port\": 31922\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"id\": \"911d40e7d00ca1fb\",\n\t\t\t\t\t\"frontend_protocol\": \"tcp\",\n\t\t\t\t\t\"frontend_port\": 443,\n\t\t\t\t\t\"backend_protocol\": \"tcp\",\n\t\t\t\t\t\"backend_port\": 31659\n\t\t\t\t}\n\t\t\t],\n\t\t\t\"firewall_rules\": [],\n\t\t\t\"instances\": [],\n\t\t\t\"nodes\": 1,\n\t\t\t\"node_ips\": {\n\t\t\t\t\"v4\": [\n\t\t\t\t\t\"155.138.225.103\\/32\"\n\t\t\t\t],\n\t\t\t\t\"v6\": [\n\t\t\t\t\t\"2001:19f0:5401:2e37:5400:05ff:fea1:5b11\\/64\"\n\t\t\t\t]\n\t\t\t},\n\t\t\t\"auto_ssl\": {\n\t\t\t\t\"domain_zone\": \"\",\n\t\t\t\t\"domain\": \"\"\n\t\t\t},\n\t\t\t\"global_parent_id\": \"\",\n\t\t\t\"global_regions\": [],\n\t\t\t\"global_children_ids\": [],\n\t\t\t\"ssl_cert_b64\": \"\",\n\t\t\t\"pending_charges\": 0.38\n\t\t},\n\t\t{\n\t\t\t\"id\": \"288e2cd1-7304-4f6c-8632-9a3da3f377c4\",\n\t\t\t\"date_created\": \"2025-09-14T09:35:14+00:00\",\n\t\t\t\"region\": \"atl\",\n\t\t\t\"label\": \"aa4c8c0f773634e358cdb1613bf50abc\",\n\t\t\t\"status\": \"active\",\n\t\t\t\"ipv4\": \"96.30.199.245\",\n\t\t\t\"ipv6\": \"2001:19f0:5400:1be5:ffff:ffff:ffff:ffff\",\n\t\t\t\"generic_info\": {\n\t\t\t\t\"balancing_algorithm\": \"roundrobin\",\n\t\t\t\t\"ssl_redirect\": false,\n\t\t\t\t\"sticky_sessions\": {\n\t\t\t\t\t\"cookie_name\": \"\"\n\t\t\t\t},\n\t\t\t\t\"proxy_protocol\": false,\n\t\t\t\t\"private_network\": \"da80bd61-8ef3-484d-a47d-c0354d18eea1\",\n\t\t\t\t\"vpc\": \"da80bd61-8ef3-484d-a47d-c0354d18eea1\",\n\t\t\t\t\"timeout\": 600\n\t\t\t},\n\t\t\t\"health_check\": {\n\t\t\t\t\"protocol\": \"tcp\",\n\t\t\t\t\"port\": 31500,\n\t\t\t\t\"path\": \"\",\n\t\t\t\t\"check_interval\": 15,\n\t\t\t\t\"response_timeout\": 5,\n\t\t\t\t\"unhealthy_threshold\": 5,\n\t\t\t\t\"healthy_threshold\": 5\n\t\t\t},\n\t\t\t\"has_ssl\": false,\n\t\t\t\"http2\": false,\n\t\t\t\"http3\": false,\n\t\t\t\"forwarding_rules\": [\n\t\t\t\t{\n\t\t\t\t\t\"id\": \"5bbfafa7a588ca84\",\n\t\t\t\t\t\"frontend_protocol\": \"tcp\",\n\t\t\t\t\t\"frontend_port\": 80,\n\t\t\t\t\t\"backend_protocol\": \"tcp\",\n\t\t\t\t\t\"backend_port\": 31500\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"id\": \"fe4031178ca3792d\",\n\t\t\t\t\t\"frontend_protocol\": \"tcp\",\n\t\t\t\t\t\"frontend_port\": 443,\n\t\t\t\t\t\"backend_protocol\": \"tcp\",\n\t\t\t\t\t\"backend_port\": 31705\n\t\t\t\t}\n\t\t\t],\n\t\t\t\"firewall_rules\": [],\n\t\t\t\"instances\": [],\n\t\t\t\"nodes\": 1,\n\t\t\t\"node_ips\": {\n\t\t\t\t\"v4\": [\n\t\t\t\t\t\"155.138.203.133\\/32\"\n\t\t\t\t],\n\t\t\t\t\"v6\": [\n\t\t\t\t\t\"2001:19f0:5401:0da7:5400:05ff:fea1:9bd5\\/64\"\n\t\t\t\t]\n\t\t\t},\n\t\t\t\"auto_ssl\": {\n\t\t\t\t\"domain_zone\": \"\",\n\t\t\t\t\"domain\": \"\"\n\t\t\t},\n\t\t\t\"global_parent_id\": \"\",\n\t\t\t\"global_regions\": [],\n\t\t\t\"global_children_ids\": [],\n\t\t\t\"ssl_cert_b64\": \"\",\n\t\t\t\"pending_charges\": 0.17\n\t\t}\n\t],\n\t\"meta\": {\n\t\t\"total\": 2,\n\t\t\"links\": {\n\t\t\t\"next\": \"\",\n\t\t\t\"prev\": \"\"\n\t\t}\n\t}\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "c9a66d69-1e99-4a80-acd3-60fb4835099d",
+      "type": "http",
+      "documentation": "Mock - load-balancer",
+      "method": "delete",
+      "endpoint": "mock/vultr/v2/load-balancers/:id",
+      "responses": [
+        {
+          "uuid": "42402b61-8008-40f0-8c6c-30867a379a12",
+          "body": "",
+          "latency": 0,
+          "statusCode": 204,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "e16b08cf-56da-4e00-b10e-f1baf0abc0f1"
+    },
+    {
+      "type": "route",
+      "uuid": "c9a66d69-1e99-4a80-acd3-60fb4835099d"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    },
+    {
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
+    },
+    {
+      "key": "Access-Control-Allow-Methods",
+      "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+    },
+    {
+      "key": "Access-Control-Allow-Headers",
+      "value": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": [],
+  "callbacks": []
+}
