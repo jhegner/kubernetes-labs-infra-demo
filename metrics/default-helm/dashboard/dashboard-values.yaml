@@ -1,0 +1,16 @@
+# Expor via LoadBalancer no Vultr
+service:
+  type: LoadBalancer
+  port: 443
+  annotations:
+    service.beta.kubernetes.io/vultr-loadbalancer-protocol: "https"
+    service.beta.kubernetes.io/vultr-loadbalancer-label: "k8s-dashboard"
+    service.beta.kubernetes.io/vultr-loadbalancer-algorithm: "least_connections"
+    service.beta.kubernetes.io/vultr-loadbalancer-healthcheck-path: "/"
+    service.beta.kubernetes.io/vultr-loadbalancer-healthcheck-check-interval: "10"
+    service.beta.kubernetes.io/vultr-loadbalancer-healthcheck-response-timeout: "5"
+    service.beta.kubernetes.io/vultr-loadbalancer-healthcheck-unhealthy-threshold: "5"
+    service.beta.kubernetes.io/vultr-loadbalancer-healthcheck-healthy-threshold: "5"
+
+# Configuração do protocolo
+protocolHttp: false   # força HTTPS
