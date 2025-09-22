@@ -2,6 +2,13 @@
 
 ## Doc referente a monitoramento do cluster
 
+Integracao **NewRelic**
+
+- https://docs.newrelic.com/
+- https://learn.newrelic.com/page/courses#cost_free
+- https://docs.newrelic.com/install/kubernetes/
+
+
 ## Referências:
 
 - https://kubernetes.io/docs/tasks/debug/debug-cluster/resource-metrics-pipeline/
