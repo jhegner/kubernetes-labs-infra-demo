@@ -23,3 +23,6 @@ helm upgrade --install newrelic-bundle newrelic/nri-bundle \
     --set k8s-agents-operator.enabled=true
 
 echo "Finalizando a instalacao..."
+
+echo "😴 Aguardando..."
+sleep 15s
