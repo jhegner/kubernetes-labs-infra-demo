@@ -19,6 +19,11 @@ The Kubernetes APM auto-attach will automatically install, upgrade and remove AP
 
 > Notice: Please be sure to redeploy or deploy new applications after you deploy the Custom Resource. Auto-instrumentation only occurs for new pods deployed in the cluster.
 
+## Uso no Deployment
+
+Necessario referenciar o LICENSE para que o agente seja injetado corretamente no container
+
+[General configuration settings](https://docs.newrelic.com/docs/apm/agents/java-agent/configuration/java-agent-configuration-config-file/#General)
 
 ## Referências:
 
