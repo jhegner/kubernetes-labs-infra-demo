@@ -6,9 +6,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/jhegner/kubernetes-labs-app-micronout.git
-    targetRevision: develop
-    path: dev
+    repoURL: https://github.com/jhegner/kubernetes-labs-infra-demo.git
+    targetRevision: argocd
+    path: argo-cd/infra
   destination:
     server: https://kubernetes.default.svc
     namespace: labs

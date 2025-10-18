@@ -1,6 +1,6 @@
 echo "✅ Application manifest applied. You can now manage your application through the ArgoCD UI."
 
-kubectl apply -f argocd-app.yaml
+kubectl apply -f applications/
 
 sleep 10s
 
