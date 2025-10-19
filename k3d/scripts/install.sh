@@ -37,7 +37,7 @@ echo 'command: kubectl port-forward svc/argocd-server -n argocd 8085:443'
 
 # Apply application manifest to ArgoCD
 echo "⏳ Applying application manifest to ArgoCD"
-kubectl apply -f ../infra/applications/
+kubectl apply -f ../argo-apps
 echo "😴 Aguardando..."
 sleep 10s
 echo "✅ Application manifest applied. You can now manage your application through the ArgoCD UI."
