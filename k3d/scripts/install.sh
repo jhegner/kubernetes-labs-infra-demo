@@ -8,7 +8,7 @@ echo "✨ Install deps for k3d local env via script"
 # Create namespace for k3d local env
 
 echo "🔧 Criando namespace para k3d local env"
-kubectl apply -f ../k3d/ns/namespace.yaml
+kubectl apply -f ../ns/namespaces.yaml
 echo "😴 Aguardando..."
 sleep 5s
 echo "✅ Namespace criado com sucesso"
@@ -37,7 +37,7 @@ echo 'command: kubectl port-forward svc/argocd-server -n argocd 8085:443'
 
 # Apply application manifest to ArgoCD
 echo "⏳ Applying application manifest to ArgoCD"
-kubectl apply -f ./k3d/infra/applications/
+kubectl apply -f ../infra/applications/
 echo "😴 Aguardando..."
 sleep 10s
 echo "✅ Application manifest applied. You can now manage your application through the ArgoCD UI."
