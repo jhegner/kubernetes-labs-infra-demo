@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: app-micronout
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/jhegner/kubernetes-labs-infra-demo.git
+    targetRevision: k3d
+    path: k3d/infra
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: k3dlocal
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      selfHeal: true
+      prune: true
