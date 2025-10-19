@@ -24,26 +24,11 @@ k3d/
 
 ## Quick Start
 
-1. Create a k3d cluster:
-
-```bash
-k3d cluster create my-cluster
-```
-
-2. Run the installation script:
-
-```bash
-cd scripts
-chmod +x install.sh
-./install.sh
-```
-
-## k3d registry
-
 1. Create a k3d registry:
 
 ```bash
 k3d registry create mylocal-registry \
+    --port 5000 \
     --proxy-remote-url "https://..." \
     --proxy-username "123..." \
     --proxy-password "456..."
@@ -57,6 +42,22 @@ k3d registry list
 NAME                 ROLE       CLUSTER   STATUS
 mylocal-registry     registry             running
 
+```
+
+3. Create a k3d cluster:
+
+```bash
+k3d cluster create labs-single-cluster \
+    --servers 1 \
+    --registry-use k3d-vultr-registry:5000 \
+```
+
+4. Run the installation script:
+
+```bash
+cd scripts
+chmod +x install.sh
+./install.sh
 ```
 
 ## Available Resources
