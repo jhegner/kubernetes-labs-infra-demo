@@ -11,7 +11,7 @@ spec:
     path: k3d/infra
   destination:
     server: https://kubernetes.default.svc
-    namespace: k3dlocal
+    namespace: labs
   syncPolicy:
     syncOptions:
       - CreateNamespace=true

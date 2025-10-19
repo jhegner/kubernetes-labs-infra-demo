@@ -4,7 +4,7 @@ metadata:
   name: app-micronout-config
   namespace: labs
   labels:
-    projeto: projeto-1
+    projeto: projeto-k3d-local
     app: app-micronout
     team: devops
     env: lab
@@ -13,13 +13,23 @@ data:
   MOCKAPI_VERSION: api/v1
 
 ---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mockapi-project-secret
+  namespace: labs
+type: Opaque
+stringData:
+  MOCKAPI_PROJECT_SECRET: "689821adddf05523e55e2f5e"
+
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: app-micronout-deploy
   namespace: labs
   labels:
-    projeto: projeto-1
+    projeto: projeto-k3d-local
     app: app-micronout
     stack: micronaut
     team: devops
@@ -32,7 +42,7 @@ spec:
   template:
     metadata:
       labels:
-        projeto: projeto-1
+        projeto: projeto-k3d-local
         app: app-micronout
         stack: micronaut
         team: devops
@@ -67,11 +77,6 @@ spec:
                 secretKeyRef:
                   name: mockapi-project-secret
                   key: MOCKAPI_PROJECT_SECRET
-            - name: NEW_RELIC_LICENSE_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: newrelic-license-key
-                  key: NEW_RELIC_LICENSE_KEY
           readinessProbe:
             httpGet:
               path: /health
@@ -98,7 +103,7 @@ metadata:
   labels:
     app: app-micronout
     component: api
-    projeto: projeto-1
+    projeto: projeto-k3d-local
     team: devops
     env: lab
 spec:
@@ -109,70 +114,70 @@ spec:
       port: 80
       targetPort: 8080
 
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: labs-ingress
-  namespace: labs
-  labels:
-    app: labs-ingress
-    projeto: projeto-1
-    team: devops
-    env: lab
-  annotations:
-    kubernetes.io/ingress.class: nginx
-    cert-manager.io/cluster-issuer: letsencrypt-prod
-    service.beta.kubernetes.io/vultr-loadbalancer-protocol: "http"
-    service.beta.kubernetes.io/vultr-loadbalancer-label: "labs-ingress-lb"
-    service.beta.kubernetes.io/vultr-loadbalancer-algorithm: "least_connections"
-    service.beta.kubernetes.io/vultr-loadbalancer-healthcheck-path: "/health"
-    service.beta.kubernetes.io/vultr-loadbalancer-healthcheck-check-interval: "5"
-    service.beta.kubernetes.io/vultr-loadbalancer-healthcheck-response-timeout: "3"
-    service.beta.kubernetes.io/vultr-loadbalancer-healthcheck-unhealthy-threshold: "3"
-    service.beta.kubernetes.io/vultr-loadbalancer-healthcheck-healthy-threshold: "2"
-    nginx.ingress.kubernetes.io/ssl-redirect: "true"
-    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-spec:
-  tls:
-    - secretName: labs-tls
-      hosts:
-        - labs.nercode.com.br
-  rules:
-    - host: labs.nercode.com.br
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: app-micronout-service
-                port:
-                  number: 80
+# ---
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: labs-ingress
+#   namespace: labs
+#   labels:
+#     app: labs-ingress
+#     projeto: projeto-k3d-local
+#     team: devops
+#     env: lab
+#   annotations:
+#     kubernetes.io/ingress.class: nginx
+#     cert-manager.io/cluster-issuer: letsencrypt-prod
+#     service.beta.kubernetes.io/vultr-loadbalancer-protocol: "http"
+#     service.beta.kubernetes.io/vultr-loadbalancer-label: "labs-ingress-lb"
+#     service.beta.kubernetes.io/vultr-loadbalancer-algorithm: "least_connections"
+#     service.beta.kubernetes.io/vultr-loadbalancer-healthcheck-path: "/health"
+#     service.beta.kubernetes.io/vultr-loadbalancer-healthcheck-check-interval: "5"
+#     service.beta.kubernetes.io/vultr-loadbalancer-healthcheck-response-timeout: "3"
+#     service.beta.kubernetes.io/vultr-loadbalancer-healthcheck-unhealthy-threshold: "3"
+#     service.beta.kubernetes.io/vultr-loadbalancer-healthcheck-healthy-threshold: "2"
+#     nginx.ingress.kubernetes.io/ssl-redirect: "true"
+#     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+# spec:
+#   tls:
+#     - secretName: labs-tls
+#       hosts:
+#         - labs.nercode.com.br
+#   rules:
+#     - host: labs.nercode.com.br
+#       http:
+#         paths:
+#           - path: /
+#             pathType: Prefix
+#             backend:
+#               service:
+#                 name: app-micronout-service
+#                 port:
+#                   number: 80
 
----
-apiVersion: autoscaling/v2
-kind: HorizontalPodAutoscaler
-metadata:
-  name: lab-hpa-app-micronout
-  namespace: labs
-  labels:
-    app: app-micronout
-    projeto: projeto-1
-    stack: micronaut
-    team: devops
-    env: lab
-spec:
-  minReplicas: 3
-  maxReplicas: 10
-  metrics:
-    - resource:
-        name: cpu
-        target:
-          averageUtilization: 50
-          type: Utilization
-      type: Resource
-  scaleTargetRef:
-    apiVersion: apps/v1
-    kind: Deployment
-    name: app-micronout-deploy
+# ---
+# apiVersion: autoscaling/v2
+# kind: HorizontalPodAutoscaler
+# metadata:
+#   name: lab-hpa-app-micronout
+#   namespace: labs
+#   labels:
+#     app: app-micronout
+#     projeto: projeto-k3d-local
+#     stack: micronaut
+#     team: devops
+#     env: lab
+# spec:
+#   minReplicas: 3
+#   maxReplicas: 10
+#   metrics:
+#     - resource:
+#         name: cpu
+#         target:
+#           averageUtilization: 50
+#           type: Utilization
+#       type: Resource
+#   scaleTargetRef:
+#     apiVersion: apps/v1
+#     kind: Deployment
+#     name: app-micronout-deploy

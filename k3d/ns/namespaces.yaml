@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: "k3dlocal"
+  name: "labs"
   labels:
     projeto: "projeto-k3d-local"
     env: "local"
