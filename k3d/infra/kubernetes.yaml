@@ -20,7 +20,7 @@ metadata:
   namespace: labs
 type: Opaque
 stringData:
-  MOCKAPI_PROJECT_SECRET: "689821adddf05523e55e2f5e"
+  MOCKAPI_PROJECT_SECRET: "123..."
 
 ---
 apiVersion: apps/v1

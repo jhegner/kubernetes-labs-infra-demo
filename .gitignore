@@ -6,3 +6,5 @@ tfplan
 terraform.tfvars
 aws-credentials.yaml
 *.key
+*.env
+*.notes

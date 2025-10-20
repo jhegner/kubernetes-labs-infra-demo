@@ -100,6 +100,27 @@ After installation:
    - Username: `admin`
    - Password: Retrieved during installation (check script output)
 
+3. Editar o ConfigMap do ArgoCD para ele usar o registry
+
+```bash
+kubectl edit configmap argocd-cm -n argocd
+
+# ... adicionar - se for Docker/OCI registry, usar:
+
+data:
+  repositories: |
+    - name: myprivrepo
+      type: docker
+      url: registry.example.com
+      username: SEU_USUARIO
+      password: SEU_TOKEN
+
+# reiniciar
+
+kubectl rollout restart deploy -n argocd
+
+```
+
 ## Useful Commands
 
 ```bash
@@ -125,6 +146,28 @@ kubectl port-forward svc/argocd-server -n argocd 8085:443
 2. If application doesn't sync:
    - Check application status: `kubectl get application -n argocd`
    - View application logs: `kubectl logs -n argocd <application-pod-name>`
+
+3. Docker local
+
+```bash
+docker run --env-file ./env/config.env \
+  -p 8080:8080 \
+  ewr.vultrcr.com/kuberneteslabcontainerregistry/kubernetes-labs-app-micronout:develop
+```
+
+## Port forward
+
+```bash
+
+# Argo URL
+
+kubectl port-forward svc/argocd-server -n argocd 8085:443
+
+# Svc App
+
+kubectl -n labs port-forward service/app-micronout-service --address 0.0.0.0 8080:80
+
+```
 
 ## Notes
 
