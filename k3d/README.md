@@ -1,14 +1,14 @@
-# k3d Local Environment Setup
+# 🚀 k3d Local Environment Setup
 
 This guide explains how to set up and use k3d for local Kubernetes development. k3d is a lightweight wrapper to run k3s (Rancher Lab's minimal Kubernetes distribution) in docker.
 
-## Prerequisites
+## 📋 Prerequisites
 
-- Docker installed and running
-- kubectl CLI tool installed
-- k3d installed (`curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash`)
+- 🐳 Docker installed and running
+- 🎮 kubectl CLI tool installed
+- 🔧 k3d installed (`curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash`)
 
-## Project Structure
+## 📁 Project Structure
 
 ```tree
 k3d/
@@ -22,7 +22,7 @@ k3d/
     └── install.sh           # Installation automation script
 ```
 
-## Quick Start
+## ⚡ Quick Start
 
 1. Create a k3d registry:
 
@@ -60,16 +60,16 @@ chmod +x install.sh
 ./install.sh
 ```
 
-## Available Resources
+## 🔧 Available Resources
 
-### Namespaces
+### 🏷️ Namespaces
 
 The project defines two namespaces:
 
 - `k3dlocal`: Main namespace for local development
 - `argocd`: Namespace for ArgoCD deployment
 
-### Applications
+### 📱 Applications
 
 The environment includes:
 
@@ -78,7 +78,7 @@ The environment includes:
   - Creates namespace automatically
   - Includes self-healing and pruning
 
-### Infrastructure Components
+### 🏗️ Infrastructure Components
 
 The `kubernetes.yaml` includes:
 
@@ -90,7 +90,7 @@ The `kubernetes.yaml` includes:
     - CPU: 500m (limit)
   - Uses Vultr container registry image
 
-## ArgoCD Access
+## 🔐 ArgoCD Access
 
 After installation:
 
@@ -100,7 +100,7 @@ After installation:
    - Username: `admin`
    - Password: Retrieved during installation (check script output)
 
-3. Editar o ConfigMap do ArgoCD para ele usar o registry
+3. Configure ArgoCD ConfigMap for registry:
 
 ```bash
 kubectl edit configmap argocd-cm -n argocd
@@ -121,7 +121,7 @@ kubectl rollout restart deploy -n argocd
 
 ```
 
-## Useful Commands
+## 🛠️ Useful Commands
 
 ```bash
 # Check cluster status
@@ -137,7 +137,7 @@ kubectl get applications -n argocd
 kubectl port-forward svc/argocd-server -n argocd 8085:443
 ```
 
-## Troubleshooting
+## ❗ Troubleshooting
 
 1. If ArgoCD UI is not accessible:
    - Verify the port-forward is running
@@ -147,30 +147,26 @@ kubectl port-forward svc/argocd-server -n argocd 8085:443
    - Check application status: `kubectl get application -n argocd`
    - View application logs: `kubectl logs -n argocd <application-pod-name>`
 
-3. Docker local
+3. Docker local testing:
+
+   ```bash
+   docker run --env-file ./env/config.env \
+     -p 8080:8080 \
+     ewr.vultrcr.com/kuberneteslabcontainerregistry/kubernetes-labs-app-micronout:develop
+   ```
+
+## 🔄 Port Forward
 
 ```bash
-docker run --env-file ./env/config.env \
-  -p 8080:8080 \
-  ewr.vultrcr.com/kuberneteslabcontainerregistry/kubernetes-labs-app-micronout:develop
-```
-
-## Port forward
-
-```bash
-
 # Argo URL
-
 kubectl port-forward svc/argocd-server -n argocd 8085:443
 
 # Svc App
-
 kubectl -n labs port-forward service/app-micronout-service --address 0.0.0.0 8080:80
-
 ```
 
-## Notes
+## 📝 Notes
 
-- The environment uses ArgoCD for GitOps-based deployments
-- All resources are labeled with project, team, and environment tags
-- The Micronaut application uses Vultr container registry for images
+- 🔄 The environment uses ArgoCD for GitOps-based deployments
+- 🏷️ All resources are labeled with project, team, and environment tags
+- 📦 The Micronaut application uses Vultr container registry for images
