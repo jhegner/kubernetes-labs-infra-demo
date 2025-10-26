@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/jhegner/kubernetes-labs-infra-demo.git
     targetRevision: k3d
-    path: k3d/infra
+    path: istio/infra
   destination:
     server: https://kubernetes.default.svc
     namespace: labs

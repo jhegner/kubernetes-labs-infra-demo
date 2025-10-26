@@ -1,24 +1,32 @@
 #!/bin/bash
 set -e
 
-echo "✨ Install deps for k3d local env via script"
+echo "✨ Install deps for local env via script"
 
-# Create namespace for k3d local env
+# Create namespace for local env
+echo "🔧 Criando namespace para o ambiente local"
 
-echo "🔧 Criando namespace para k3d local env"
 kubectl apply -f ../ns/namespaces.yaml
+
 echo "😴 Aguardando..."
+
 sleep 5s
+
 echo "✅ Namespace criado com sucesso"
 
 # Install ArgoCD in the cluster manually
-echo "🐙 Installing ArgoCD in the cluster manually"
+# echo "🐙 Installing ArgoCD in the cluster manually"
 
-kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
-echo "😴 Aguardando..."
-sleep 15s
-kubectl get pods -n argocd
-echo "✅ ArgoCD installed successfully"
+# kubectl create namespace argocd
+
+# kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+
+# echo "😴 Aguardando..."
+# sleep 15s
+
+# kubectl get pods -n argocd
+
+# echo "✅ ArgoCD installed successfully"
 
 # Get the initial admin password and port-forward the ArgoCD server to localhost:8085
 echo "🔑 Running the command to get the initial admin password:"
@@ -36,22 +44,44 @@ echo ""
 echo "command: [kubectl port-forward svc/argocd-server -n argocd 8085:443]"
 echo ""
 echo ""
+# Check if running on Windows
+if [[ "$OSTYPE" == "msys" || "$OSTYPE" == "cygwin" || "$OSTYPE" == "win32" ]]; then
+  
+  # Load environment variables from .env file
+  source ./.env
+  
+  # kubectl create secret docker-registry vultr-registry-secret \
+  #   --docker-server=$CONTAINER_REGISTRY_URL \
+  #   --docker-username=$CONTAINER_REGISTRY_USERNAME \
+  #   --docker-password=$CONTAINER_REGISTRY_PASSWORD \
+  #   --docker-email=$EMAIL1 \
+  #   -n argocd
 
-# Create Docker registry secret in ArgoCD namespace
-kubectl create secret docker-registry vultr-registry-secret \
-  --docker-server=$CONTAINER_REGISTRY_URL \
-  --docker-username=$CONTAINER_REGISTRY_USERNAME \
-  --docker-password=$CONTAINER_REGISTRY_PASSWORD \
-  --docker-email=$EMAIL1 \
-  -n argocd 
+else
+  # Create Docker registry secret in ArgoCD namespace
+  kubectl create secret docker-registry vultr-registry-secret \
+    --docker-server=$CONTAINER_REGISTRY_URL \
+    --docker-username=$CONTAINER_REGISTRY_USERNAME \
+    --docker-password=$CONTAINER_REGISTRY_PASSWORD \
+    --docker-email=$EMAIL1 \
+    -n argocd 
+fi
 
-# Apply application manifest to ArgoCD
-echo "⏳ Applying application manifest to ArgoCD"
-kubectl apply -f ../argo-apps
-echo "😴 Aguardando..."
-sleep 10s
-echo "✅ Application manifest applied. You can now manage your application through the ArgoCD UI."
+  # Apply application manifest to ArgoCD
+  echo "⏳ Applying application manifest to ArgoCD"
+
+  kubectl apply -f ../argo-apps
+  
+  echo "😴 Aguardando..."
+  
+  sleep 10s
+  
+  echo "✅ Application manifest applied. You can now manage your application through the ArgoCD UI."
 
 # ---
 
-echo "Ends the install process of deps for k3d local env via script"
+echo "Ends the install process of deps for local kubernetes env via script"
+
+# Decoded Docker config json for verification
+
+# kubectl get secret vultr-registry-secret -n argocd -o jsonpath="{.data.\.dockerconfigjson}" | base64 -d | jq
