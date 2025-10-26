@@ -48,8 +48,6 @@ spec:
         team: devops
         env: lab
     spec:
-      # imagePullSecrets:
-      #   - name: vultr-registry-secret
       containers:
         - name: app-micronout
           image: ewr.vultrcr.com/kuberneteslabcontainerregistry/kubernetes-labs-app-micronout:develop
