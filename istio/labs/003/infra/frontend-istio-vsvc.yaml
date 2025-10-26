@@ -11,9 +11,9 @@ spec:
   http:
     - match:
         - uri:
-            prefix: "/"
+            prefix: "/v1"
       route:
         - destination:
             host: frontend.labs.svc.cluster.local
             port:
-              number: 80
+              number: 8080
