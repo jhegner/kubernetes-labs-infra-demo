@@ -37,3 +37,13 @@ Existem duas opções para trabalhar com clusters blue/green:
 - Simulação em um único cluster
 - Usa namespaces separados (blue e green)
 - Perfeito para aprendizado local
+
+### 📚 Documentação
+
+| Recurso            | Descrição                                     | Link                                                                            |
+| ------------------ | --------------------------------------------- | ------------------------------------------------------------------------------- |
+| Documentação Geral | Guias, conceitos e tutoriais do Istio         | [Docs](https://istio.io/latest/docs/)                                           |
+| Referência da API  | Documentação detalhada da API e recursos      | [Reference](https://istio.io/latest/docs/reference/)                            |
+| Istioctl           | Guia de uso da ferramenta de linha de comando | [Diagnostic Tools](https://istio.io/latest/docs/ops/diagnostic-tools/istioctl/) |
+| Instalação         | Guia de instalação e configuração             | [Setup](https://istio.io/latest/docs/setup/)                                    |
+| Exemplos           | Coleção de exemplos práticos                  | [Examples](https://istio.io/latest/docs/examples/)                              |
